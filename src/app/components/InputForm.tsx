@@ -54,7 +54,7 @@ export default function InputForm({
             onChange={(e) => setAlgorithm?.(e.target.value)}
           >
             <option value="aes-256-cbc">AES-256-CBC</option>
-            <option value="sha256">SHA-256 (Hash)</option>
+            <option value="sha-256">SHA-256 (Hash)</option>
             <option value="md5">MD5 (Hash)</option>
             <option value="base64">Base64 (Encoding)</option>
           </select>

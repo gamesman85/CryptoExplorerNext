@@ -87,7 +87,7 @@ function decryptAES(encryptedText: string, key: string): string {
     // Split iv and encrypted data
     const textParts = encryptedText.split(':');
     if (textParts.length !== 2) {
-      throw new Error('Invalid encrypted text format');
+      return 'Invalid encrypted text format';
     }
     
     const iv = Buffer.from(textParts[0], 'hex');
@@ -105,7 +105,7 @@ function decryptAES(encryptedText: string, key: string): string {
     
     return decrypted;
   } catch {
-    throw new Error('Failed to decrypt: Invalid encrypted text or key');
+    return 'Failed to decrypt: Invalid encrypted text or key';
   }
 }
 
@@ -125,6 +125,6 @@ function decodeBase64(text: string): string {
   try {
     return Buffer.from(text, 'base64').toString('utf8');
   } catch {
-    throw new Error('Failed to decode: Invalid Base64 string');
+    return 'Failed to decode: Invalid Base64 string';
   }
 }

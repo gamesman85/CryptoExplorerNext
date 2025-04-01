@@ -14,6 +14,12 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Add validation for AES requiring a key
+    if (algorithm === 'aes-256-cbc' && !secretKey.trim()) {
+      setOutputText('Error: Secret key is required for AES encryption/decryption');
+      return;
+    }
+    
     try {
       const response = await fetch('/api/crypto', {
         method: 'POST',
@@ -35,8 +41,8 @@ export default function Home() {
       } else if (data.error) {
         setOutputText(`Error: ${data.error}`);
       }
-    } catch (error) {
-      setOutputText(`Error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
+    } catch {
+      setOutputText('An error occurred');
     }
   };
   
