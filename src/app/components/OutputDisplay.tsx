@@ -1,4 +1,6 @@
-import { OutputDisplayProps } from "@/types/output";
+interface OutputDisplayProps {
+  outputText?: string;
+}
 
 export default function OutputDisplay({ outputText }: OutputDisplayProps) {
   return (
