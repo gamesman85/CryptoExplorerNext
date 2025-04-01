@@ -67,11 +67,11 @@ export default function InputForm({
           <select 
             value={operation || 'encrypt'}
             onChange={(e) => setOperation?.(e.target.value)}
-            disabled={!!algorithm && ['sha256', 'md5'].includes(algorithm)}
+            disabled={!!algorithm && ['sha-256', 'md5'].includes(algorithm)}
           >
             <option value="encrypt">Encrypt/Hash/Encode</option>
             <option value="decrypt" 
-              disabled={!!algorithm && ['sha256', 'md5'].includes(algorithm)}>
+              disabled={!!algorithm && ['sha-256', 'md5'].includes(algorithm)}>
               Decrypt/Decode
             </option>
           </select>
